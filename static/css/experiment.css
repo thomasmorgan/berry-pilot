@@ -10,10 +10,25 @@ table {
 	margin: auto;
 }
 
-img {
+.berry_div {
+	position: relative;
+	height: 400px;
+	width: 400px;
+	margin: auto;
+}
+
+.small_berry {
 	position: absolute;
 	height: 200px;
 	width: 200px;
+	top: 0;
+	left: 0;
+}
+
+.big_berry {
+	position: absolute;
+	height: 400px;
+	width: 400px;
 	top: 0;
 	left: 0;
 }

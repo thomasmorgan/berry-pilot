@@ -1,7 +1,22 @@
-num_berries = 40
+lock = true;
+num_berries = 40;
+current_trial = 0;
+dimensions = ["color", "shininess", "spottiness"]
 
 insert_berry_number = function() {
     $("#n_berries").html(num_berries);
+};
+
+start_trials = function() {
+    colors = [];
+    shininesses = [];
+    spottinesses = [];
+    for (i = 0; i<num_berries; i++) {
+        colors.push(Math.random() * 0.6 + 0.2)
+        shininesses.push(Math.random() * 0.6 + 0.2)
+        spottinesses.push(Math.random() * 0.6 + 0.2)
+    }
+    create_agent();
 }
 
 // Create the agent.
@@ -12,7 +27,7 @@ create_agent = function() {
         type: 'json',
         success: function (resp) {
             my_node_id = resp.node.id;
-            get_info(my_node_id);
+            present_stimulus();
         },
         error: function (err) {
             console.log(err);
@@ -27,51 +42,92 @@ create_agent = function() {
     });
 };
 
-get_info = function() {
-    reqwest({
-        url: "/node/" + my_node_id + "/received_infos",
-        method: 'get',
-        type: 'json',
-        success: function (resp) {
-            story = resp.infos[0].contents;
-            storyHTML = markdown.toHTML(story);
-            $("#story").html(storyHTML);
-            $("#stimulus").show();
-            $("#response-form").hide();
-            $("#finish-reading").show();
-        },
-        error: function (err) {
-            console.log(err);
-            err_response = JSON.parse(err.response);
-            $('body').html(err_response.html);
+present_stimulus = function() {
+    $("#trial_counter").html("This is trial " + (current_trial+1) + " of " + num_berries + ".");
+
+    color = colors[current_trial];
+    shininess = shininesses[current_trial];
+    spottiness = spottinesses[current_trial];
+
+    $("#red_body").css("opacity", color);
+    $("#glint").css("opacity", shininess);
+    $("#spots").css("opacity", spottiness);
+
+    dimension = dimensions[Math.floor(Math.random()*3)];
+    if (dimension == "color") {
+        value = colors[current_trial];
+        $("#title").html("Is this berry red or blue?");
+        $("#left_button").html("Red");
+        $("#right_button").html("Blue");
+    } else if (dimension == "shininess") {
+        value = shininesses[current_trial];
+        $("#title").html("Is this berry shiny or dull?");
+        $("#left_button").html("Shiny");
+        $("#right_button").html("Dull");
+    } else {
+        value = spottinesses[current_trial];
+        $("#title").html("Does this berry have bold spots or pale spots?");
+        $("#left_button").html("Bold");
+        $("#right_button").html("Pale");
+    }
+    lock = false;
+};
+
+$(document).keydown(function(e) {
+    var code = e.keyCode || e.which;
+    if (code == 37) {
+        left_click();
+    } else if (code == 39) {
+        right_click();
+    }
+});
+
+left_click = function() {
+    if (lock === false) {
+        lock = true;
+        if (dimension == "color") {
+            submit_response("red");
+        } else if (dimension == "shininess") {
+            submit_response("shiny");
+        } else {
+            submit_response("bold")
         }
-    });
+    }
 };
 
-finish_reading = function() {
-    $("#stimulus").hide();
-    $("#response-form").show();
-    $("#submit-response").removeClass('disabled');
-    $("#submit-response").html('Submit');
+right_click = function() {
+    if (lock === false) {
+        lock = true;
+        if (dimension == "color") {
+            submit_response("blue");
+        } else if (dimension == "shininess") {
+            submit_response("dull");
+        } else {
+            submit_response("pale")
+        }
+    }
 };
 
-submit_response = function() {
-    $("#submit-response").addClass('disabled');
-    $("#submit-response").html('Sending...');
-
-    response = $("#reproduction").val();
-
-    $("#reproduction").val("");
-
+submit_response = function(response) {
+    current_trial += 1;
     reqwest({
         url: "/info/" + my_node_id,
         method: 'post',
         data: {
             contents: response,
-            info_type: "Info"
+            info_type: "Info",
+            property1: dimension,
+            property2: current_trial,
+            property3: value,
+            property4: [color, shininess, spottiness]
         },
         success: function (resp) {
-            create_agent();
+            if (current_trial<num_berries) {
+                present_stimulus();
+            } else {
+                allow_exit();
+                go_to_page('postquestionnaire');
+            }
         }
     });
 };
