@@ -1,12 +1,14 @@
-"""Bartlett's trasmission chain experiment from Remembering (1932)."""
+"""Pilot experiment for the berry game."""
 
-from wallace.networks import Chain
-from wallace.nodes import Source
 from wallace.experiments import Experiment
-import random
+from wallace.networks import Empty
+from wallace.models import Info
+from sqlalchemy import Integer, Float, Boolean
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.sql.expression import cast
 
 
-class Bartlett1932(Experiment):
+class BerryPilot(Experiment):
     """Define the structure of the experiment."""
 
     def __init__(self, session):
@@ -15,9 +17,13 @@ class Bartlett1932(Experiment):
         A few properties are then overwritten.
         Finally, setup() is called.
         """
-        super(Bartlett1932, self).__init__(session)
+        super(BerryPilot, self).__init__(session)
         self.experiment_repeats = 1
-        self.network = lambda: Chain(max_size=3)
+        self.network = Empty
+        self.initial_recruitment_size = 1
+        self.known_classes["Decision"] = Decision
+        self.min_acceptable_performance = 0.75
+        self.num_trials = 40
         self.setup()
 
     def setup(self):
@@ -28,46 +34,127 @@ class Bartlett1932(Experiment):
         function in the super (see experiments.py in wallace). Then it adds a
         source to each network.
         """
-        if not self.networks():
-            super(Bartlett1932, self).setup()
-            for net in self.networks():
-                WarOfTheGhostsSource(network=net)
-
-    def add_node_to_network(self, node, network):
-        """Add node to the chain and receive transmissions."""
-        network.add_node(node)
-        node.receive()
+        super(BerryPilot, self).setup()
 
     def recruit(self):
-        """Recruit one participant at a time until all networks are full."""
-        if self.networks(full=False):
-            self.recruiter().recruit_participants(n=1)
-        else:
-            self.recruiter().close_recruitment()
+        """pass."""
+        pass
+
+    def attention_check(self, participant):
+        """Check that the data are acceptable."""
+        nodes = participant.nodes()
+        infos = []
+        for n in nodes:
+            infos.extend(n.infos())
+
+        score = (
+            float(len([i for i in infos if i.right is True])) /
+            (float(len(infos)))
+        )
+
+        return score >= self.min_acceptable_performance
+
+    def bonus(self, participant):
+        """The bonus to be awarded to the given participant."""
+        nodes = participant.nodes()
+        infos = []
+        for n in nodes:
+            infos.extend(n.infos())
+
+        score = (
+            float(len([i for i in infos if i.right])) /
+            (float(len(infos)))
+        )
+
+        return max((score - 0.5) * 2, 0)
 
 
-class WarOfTheGhostsSource(Source):
-    """A Source that reads in a random story from a file and transmits it."""
+class Decision(Info):
+    """A decision."""
 
-    __mapper_args__ = {
-        "polymorphic_identity": "war_of_the_ghosts_source"
-    }
+    __mapper_args__ = {"polymorphic_identity": "decision"}
 
-    def _contents(self):
-        """Define the contents of new Infos.
+    """Property 1"""
 
-        transmit() -> _what() -> create_information() -> _contents().
-        """
-        stories = [
-            "ghosts.md",
-            "cricket.md",
-            "moochi.md",
-            "outwit.md",
-            "raid.md",
-            "species.md",
-            "tennis.md",
-            "vagabond.md"
-        ]
-        story = random.choice(stories)
-        with open("static/stimuli/{}".format(story), "r") as f:
-            return f.read()
+    @hybrid_property
+    def dimension(self):
+        """Convert property1 to dimension."""
+        return self.property1
+
+    @dimension.setter
+    def dimension(self, dimension):
+        """Make dimension settable."""
+        self.property1 = dimension
+
+    @dimension.expression
+    def dimension(self):
+        """Make dimension queryable."""
+        return self.property1
+
+    """Property 2"""
+
+    @hybrid_property
+    def trial(self):
+        """Convert property2 to trial."""
+        return int(self.property2)
+
+    @trial.setter
+    def trial(self, trial):
+        """Make trial settable."""
+        self.property2 = repr(trial)
+
+    @trial.expression
+    def trial(self):
+        """Make trial queryable."""
+        return cast(self.property2, Integer)
+
+    """Property 3"""
+
+    @hybrid_property
+    def value(self):
+        """Convert property3 to value."""
+        return float(self.property3)
+
+    @value.setter
+    def value(self, value):
+        """Make value settable."""
+        self.property3 = repr(value)
+
+    @value.expression
+    def value(self):
+        """Make value queryable."""
+        return cast(self.property3, Float)
+
+    """Property 4"""
+
+    @hybrid_property
+    def dimensions(self):
+        """Convert property4 to dimensions."""
+        return self.property4
+
+    @dimensions.setter
+    def dimensions(self, dimensions):
+        """Make dimensions settable."""
+        self.property4 = dimensions
+
+    @dimensions.expression
+    def dimensions(self):
+        """Make dimensions queryable."""
+        return self.property4
+
+    """Property 5"""
+
+    @hybrid_property
+    def right(self):
+        """Convert property5 to right."""
+        return bool(self.property5)
+
+    @right.setter
+    def right(self, right):
+        """Make right settable."""
+        self.property5 = repr(right)
+
+    @right.expression
+    def right(self):
+        """Make right queryable."""
+        return cast(self.property5, Boolean)

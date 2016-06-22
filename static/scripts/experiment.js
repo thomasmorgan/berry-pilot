@@ -8,15 +8,24 @@ insert_berry_number = function() {
 };
 
 start_trials = function() {
-    colors = [];
-    shininesses = [];
-    spottinesses = [];
-    for (i = 0; i<num_berries; i++) {
-        colors.push(Math.random() * 0.6 + 0.2)
-        shininesses.push(Math.random() * 0.6 + 0.2)
-        spottinesses.push(Math.random() * 0.6 + 0.2)
-    }
-    create_agent();
+    reqwest({
+        url: "/experiment_property/num_trials",
+        method: 'get',
+        type: 'json',
+        success: function (resp) {
+            blah = resp;
+            num_berries = resp.num_trials;
+            colors = [];
+            shininesses = [];
+            spottinesses = [];
+            for (i = 0; i<num_berries; i++) {
+                colors.push((Math.random() * 0.6 + 0.2).toFixed(2));
+                shininesses.push((Math.random() * 0.6 + 0.2).toFixed(2));
+                spottinesses.push((Math.random() * 0.6 + 0.2).toFixed(2));
+            }
+            create_agent();
+        },
+    });
 }
 
 // Create the agent.
@@ -84,6 +93,7 @@ $(document).keydown(function(e) {
 
 left_click = function() {
     if (lock === false) {
+        right = value > 0.5
         lock = true;
         if (dimension == "color") {
             submit_response("red");
@@ -97,6 +107,7 @@ left_click = function() {
 
 right_click = function() {
     if (lock === false) {
+        right = value < 0.5
         lock = true;
         if (dimension == "color") {
             submit_response("blue");
@@ -109,19 +120,20 @@ right_click = function() {
 };
 
 submit_response = function(response) {
-    current_trial += 1;
     reqwest({
         url: "/info/" + my_node_id,
         method: 'post',
         data: {
             contents: response,
-            info_type: "Info",
+            info_type: "Decision",
             property1: dimension,
             property2: current_trial,
             property3: value,
-            property4: [color, shininess, spottiness]
+            property4: [color, shininess, spottiness].toString(),
+            property5: right
         },
         success: function (resp) {
+            current_trial += 1;
             if (current_trial<num_berries) {
                 present_stimulus();
             } else {
