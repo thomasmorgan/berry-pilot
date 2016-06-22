@@ -1,3 +1,9 @@
+num_berries = 40
+
+insert_berry_number = function() {
+    $("#n_berries").html(num_berries);
+}
+
 // Create the agent.
 create_agent = function() {
     reqwest({
