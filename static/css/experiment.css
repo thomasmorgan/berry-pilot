@@ -1,8 +1,27 @@
 td {
     width: 200px;
     text-align: center;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 table {
 	margin: auto;
+}
+
+img {
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	top: 0;
+	left: 0;
+}
+
+.img_row {
+	height: 200px;
+}
+
+.buffer_row {
+	height: 50px;
 }
