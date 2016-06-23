@@ -52,6 +52,10 @@ create_agent = function() {
 };
 
 present_stimulus = function() {
+    $("#title").hide();
+    $(".berry_div").hide();
+    $("#button_div").hide();
+
     $("#trial_counter").html("This is trial " + (current_trial+1) + " of " + num_berries + ".");
 
     color = colors[current_trial];
@@ -79,8 +83,19 @@ present_stimulus = function() {
         $("#left_button").html("Bold");
         $("#right_button").html("Pale");
     }
-    lock = false;
+    setTimeout(show1, 500);
+    setTimeout(show2, 2000);
 };
+
+show1 = function() {
+    $("#title").show();
+    $(".berry_div").show();
+}
+
+show2 = function() {
+    $("#button_div").show();
+    lock = false;
+}
 
 $(document).keydown(function(e) {
     var code = e.keyCode || e.which;
