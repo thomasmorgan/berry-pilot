@@ -84,12 +84,16 @@ present_stimulus = function() {
         $("#right_button").html("Pale");
     }
     setTimeout(show1, 500);
-    setTimeout(show2, 2000);
+    setTimeout(show1b, 1500);
+    setTimeout(show2, 2500);
+};
+
+show1b = function() {
+    $(".berry_div").css('visibility', 'visible');
 };
 
 show1 = function() {
     $("#title").css('visibility', 'visible');
-    $(".berry_div").css('visibility', 'visible');
 };
 
 show2 = function() {
