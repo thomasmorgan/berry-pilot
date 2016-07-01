@@ -2,6 +2,7 @@
 
 from wallace.experiments import Experiment
 from wallace.models import Info
+from wallace.networks import Empty
 from sqlalchemy import Integer, Float, Boolean
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.sql.expression import cast
@@ -37,6 +38,9 @@ class BerryPilot(Experiment):
     def recruit(self):
         """pass."""
         pass
+
+    def network_type(self):
+        return Empty
 
     def attention_check(self, participant):
         """Check that the data are acceptable."""
