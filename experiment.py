@@ -1,7 +1,6 @@
 """Pilot experiment for the berry game."""
 
 from wallace.experiments import Experiment
-from wallace.networks import Empty
 from wallace.models import Info
 from sqlalchemy import Integer, Float, Boolean
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -19,7 +18,6 @@ class BerryPilot(Experiment):
         """
         super(BerryPilot, self).__init__(session)
         self.experiment_repeats = 1
-        self.network = Empty
         self.initial_recruitment_size = 1
         self.known_classes["Decision"] = Decision
         self.min_acceptable_performance = 0.75
