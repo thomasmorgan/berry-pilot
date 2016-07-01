@@ -40,14 +40,12 @@ class BerryPilot(Experiment):
         pass
 
     def network_type(self):
+        """Use the Empty network."""
         return Empty
 
     def attention_check(self, participant):
         """Check that the data are acceptable."""
-        nodes = participant.nodes()
-        infos = []
-        for n in nodes:
-            infos.extend(n.infos())
+        infos = participant.infos()
 
         score = (
             float(len([i for i in infos if i.right is True])) /
@@ -58,17 +56,14 @@ class BerryPilot(Experiment):
 
     def bonus(self, participant):
         """The bonus to be awarded to the given participant."""
-        nodes = participant.nodes()
-        infos = []
-        for n in nodes:
-            infos.extend(n.infos())
+        infos = participant.infos()
 
         score = (
             float(len([i for i in infos if i.right])) /
             (float(len(infos)))
         )
 
-        return max((score - 0.5) * 2, 0)
+        return round(min(max((score - 0.5) * 2, 0), 1), 2)
 
 
 class Decision(Info):
