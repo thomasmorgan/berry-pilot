@@ -1,7 +1,7 @@
 lock = true;
 num_berries = 40;
 current_trial = 0;
-dimensions = ["color", "shininess", "spottiness"]
+dimensions = ["color", "shininess", "spottiness"];
 
 insert_berry_number = function() {
     $("#n_berries").html(num_berries);
@@ -26,7 +26,7 @@ start_trials = function() {
             create_agent();
         },
     });
-}
+};
 
 // Create the agent.
 create_agent = function() {
