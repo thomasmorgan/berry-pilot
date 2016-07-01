@@ -52,9 +52,9 @@ create_agent = function() {
 };
 
 present_stimulus = function() {
-    $("#title").hide();
-    $(".berry_div").hide();
-    $("#button_div").hide();
+    $("#title").css('visibility', 'hidden');
+    $(".berry_div").css('visibility', 'hidden');
+    $("#button_div").css('visibility', 'hidden');
 
     $("#trial_counter").html("This is trial " + (current_trial+1) + " of " + num_berries + ".");
 
@@ -88,14 +88,14 @@ present_stimulus = function() {
 };
 
 show1 = function() {
-    $("#title").show();
-    $(".berry_div").show();
-}
+    $("#title").css('visibility', 'visible');
+    $(".berry_div").css('visibility', 'visible');
+};
 
 show2 = function() {
-    $("#button_div").show();
+    $("#button_div").css('visibility', 'visible');
     lock = false;
-}
+};
 
 $(document).keydown(function(e) {
     var code = e.keyCode || e.which;
@@ -108,28 +108,28 @@ $(document).keydown(function(e) {
 
 left_click = function() {
     if (lock === false) {
-        right = value > 0.5
+        right = value > 0.5;
         lock = true;
         if (dimension == "color") {
             submit_response("red");
         } else if (dimension == "shininess") {
             submit_response("shiny");
         } else {
-            submit_response("bold")
+            submit_response("bold");
         }
     }
 };
 
 right_click = function() {
     if (lock === false) {
-        right = value < 0.5
+        right = value < 0.5;
         lock = true;
         if (dimension == "color") {
             submit_response("blue");
         } else if (dimension == "shininess") {
             submit_response("dull");
         } else {
-            submit_response("pale")
+            submit_response("pale");
         }
     }
 };
