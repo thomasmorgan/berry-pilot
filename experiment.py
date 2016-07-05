@@ -29,9 +29,9 @@ class BerryPilot(Experiment):
         """pass."""
         pass
 
-    def network_type(self):
+    def create_network(self):
         """Use the Empty network."""
-        return Empty
+        return Empty()
 
     def attention_check(self, participant):
         """Check that the data are acceptable."""
