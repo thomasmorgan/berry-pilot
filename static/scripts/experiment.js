@@ -1,10 +1,16 @@
 lock = true;
-num_berries = 40;
 current_trial = 0;
 dimensions = ["color", "shininess", "spottiness"];
 
 insert_berry_number = function() {
-    $("#n_berries").html(num_berries);
+    reqwest({
+        url: "/experiment_property/num_trials",
+        method: 'get',
+        type: 'json',
+        success: function (resp) {
+            $("#n_berries").html(resp.num_trials);
+        },
+    });
 };
 
 start_trials = function() {
@@ -19,9 +25,9 @@ start_trials = function() {
             shininesses = [];
             spottinesses = [];
             for (i = 0; i<num_berries; i++) {
-                colors.push((Math.random() * 0.6 + 0.2).toFixed(2));
-                shininesses.push((Math.random() * 0.6 + 0.2).toFixed(2));
-                spottinesses.push((Math.random() * 0.6 + 0.2).toFixed(2));
+                colors.push((Math.random() * 0.5 + 0.25).toFixed(2));
+                shininesses.push((Math.random() * 0.5 + 0.25).toFixed(2));
+                spottinesses.push((Math.random() * 0.5 + 0.25).toFixed(2));
             }
             create_agent();
         },
