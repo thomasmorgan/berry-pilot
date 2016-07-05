@@ -25,16 +25,6 @@ class BerryPilot(Experiment):
         self.num_trials = 40
         self.setup()
 
-    def setup(self):
-        """Setup the networks.
-
-        Setup only does stuff if there are no networks, this is so it only
-        runs once at the start of the experiment. It first calls the same
-        function in the super (see experiments.py in wallace). Then it adds a
-        source to each network.
-        """
-        super(BerryPilot, self).setup()
-
     def recruit(self):
         """pass."""
         pass
