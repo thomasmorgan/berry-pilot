@@ -19,10 +19,10 @@ class BerryPilot(Experiment):
         """
         super(BerryPilot, self).__init__(session)
         self.experiment_repeats = 1
-        self.initial_recruitment_size = 1
+        self.initial_recruitment_size = 10
         self.known_classes["Decision"] = Decision
         self.min_acceptable_performance = 0.75
-        self.num_trials = 80
+        self.num_trials = 120
         self.setup()
 
     def recruit(self):
@@ -52,6 +52,8 @@ class BerryPilot(Experiment):
             float(len([i for i in infos if i.right])) /
             (float(len(infos)))
         )
+
+        print "score: {}".format(score)
 
         return round(min(max((score - 0.5) * 2, 0), 1), 2)
 
