@@ -136,7 +136,7 @@ class Decision(Info):
     @hybrid_property
     def right(self):
         """Convert property5 to right."""
-        return bool(self.property5)
+        return self.property5 in ["true", "True"]
 
     @right.setter
     def right(self, right):
