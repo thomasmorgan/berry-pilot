@@ -19,7 +19,7 @@ class BerryPilot(Experiment):
         """
         super(BerryPilot, self).__init__(session)
         self.experiment_repeats = 1
-        self.initial_recruitment_size = 10
+        self.initial_recruitment_size = 20
         self.known_classes["Decision"] = Decision
         self.min_acceptable_performance = 0.75
         self.num_trials = 120
