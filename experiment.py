@@ -1,8 +1,8 @@
 """Pilot experiment for the berry game."""
 
-from wallace.experiments import Experiment
-from wallace.models import Info
-from wallace.networks import Empty
+from dallinger.experiments import Experiment
+from dallinger.models import Info
+from dallinger.networks import Empty
 from sqlalchemy import Integer, Float, Boolean
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.sql.expression import cast
@@ -12,16 +12,16 @@ class BerryPilot(Experiment):
     """Define the structure of the experiment."""
 
     def __init__(self, session):
-        """Call the same function in the super (see experiments.py in wallace).
+        """Call the same function in the super (see experiments.py in dallinger).
 
         A few properties are then overwritten.
         Finally, setup() is called.
         """
         super(BerryPilot, self).__init__(session)
         self.experiment_repeats = 1
-        self.initial_recruitment_size = 40
+        self.initial_recruitment_size = 3
         self.known_classes["Decision"] = Decision
-        self.min_acceptable_performance = 0.75
+        self.min_acceptable_performance = 1.00
         self.num_trials = 120
         self.setup()
 

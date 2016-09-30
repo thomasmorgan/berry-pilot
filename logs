@@ -1,0 +1,243 @@
+2016-09-30 11:03:11 [64107] [INFO] Starting gunicorn 18.0
+2016-09-30 11:03:11 [64107] [DEBUG] Arbiter booted
+2016-09-30 11:03:11 [64107] [INFO] Listening at: http://0.0.0.0:5000 (64107)
+2016-09-30 11:03:11 [64107] [INFO] Using worker: sync
+2016-09-30 11:03:11 [64110] [INFO] Booting worker with pid: 64110
+/Users/Tom/.virtualenvs/dallinger/lib/python2.7/site-packages/SQLAlchemy-1.0.15-py2.7.egg/sqlalchemy/orm/mapper.py:984: SAWarning: Reassigning polymorphic association for identity 'decision' from <Mapper at 0x110e1d7d0; Decision> to <Mapper at 0x110e1da50; Decision>: Check for duplicate use of 'decision' as value for polymorphic_identity.
+2016-09-30 11:03:11,687 /Users/Tom/.virtualenvs/dallinger/lib/python2.7/site-packages/psiturk/psiturk_js/psiturk.js
+2016-09-30 11:03:12 [64110] [DEBUG] Closing connection. 
+2016-09-30 11:03:12,821 Closing connection. 
+2016-09-30 11:03:15 [64110] [DEBUG] POST /launch
+2016-09-30 11:03:15,105 POST /launch
+>>>> ----- Launching experiment...
+2016-09-30 11:03:15,296 Starting new HTTPS connection (1): api.psiturk.org
+2016-09-30 11:03:15,701 "GET /api/ad HTTP/1.1" 200 1050729
+2016-09-30 11:03:16,391 Using access key provided by client.
+2016-09-30 11:03:16,391 Using secret key provided by client.
+2016-09-30 11:03:16,391 Method: GET
+2016-09-30 11:03:16,391 Path: /
+2016-09-30 11:03:16,392 Data: 
+2016-09-30 11:03:16,392 Headers: {}
+2016-09-30 11:03:16,392 Host: rds.amazonaws.com
+2016-09-30 11:03:16,392 Port: 443
+2016-09-30 11:03:16,392 Params: {'Action': 'DescribeDBInstances', 'Version': '2013-05-15'}
+2016-09-30 11:03:16,392 establishing HTTPS connection: host=rds.amazonaws.com, kwargs={'port': 443, 'timeout': 70}
+2016-09-30 11:03:16,392 Token: None
+2016-09-30 11:03:16,392 CanonicalRequest:
+GET
+/
+Action=DescribeDBInstances&Version=2013-05-15
+host:rds.amazonaws.com
+x-amz-date:20160930T180316Z
+
+host;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+2016-09-30 11:03:16,393 StringToSign:
+AWS4-HMAC-SHA256
+20160930T180316Z
+20160930/us-east-1/rds/aws4_request
+9a7af5bc7b6a9973f5e0243537516e8fd9440146489378f5797c2b50216430b6
+2016-09-30 11:03:16,393 Signature:
+d6fcf5d31e45f338e58791496a7777d9664c1bd3a09b13175cb0a034fcbc03c2
+2016-09-30 11:03:16,460 wrapping ssl socket; CA certificate file=/Users/Tom/.virtualenvs/dallinger/lib/python2.7/site-packages/boto/cacerts/cacerts.txt
+2016-09-30 11:03:16,611 validating server certificate: hostname=rds.amazonaws.com, certificate hosts=['rds.us-east-1.amazonaws.com', 'us-east-1.rds.amazonaws.com', 'rds.amazonaws.com']
+2016-09-30 11:03:16,704 <DescribeDBInstancesResponse xmlns="http://rds.amazonaws.com/doc/2013-05-15/">
+  <DescribeDBInstancesResult>
+    <DBInstances/>
+  </DescribeDBInstancesResult>
+  <ResponseMetadata>
+    <RequestId>298ec76e-8738-11e6-93a0-ff7152e5e3cb</RequestId>
+  </ResponseMetadata>
+</DescribeDBInstancesResponse>
+
+2016-09-30 11:03:16,706 Using access key provided by client.
+2016-09-30 11:03:16,706 Using secret key provided by client.
+2016-09-30 11:03:16,707 Method: POST
+2016-09-30 11:03:16,707 Path: /
+2016-09-30 11:03:16,707 Data: 
+2016-09-30 11:03:16,707 Headers: {}
+2016-09-30 11:03:16,707 Host: mechanicalturk.amazonaws.com
+2016-09-30 11:03:16,707 Port: 443
+2016-09-30 11:03:16,708 Params: {'Operation': 'GetAccountBalance', 'Version': '2012-03-25'}
+2016-09-30 11:03:16,708 establishing HTTPS connection: host=mechanicalturk.amazonaws.com, kwargs={'port': 443, 'timeout': 70}
+2016-09-30 11:03:16,708 Token: None
+2016-09-30 11:03:16,708 using _calc_signature_1
+2016-09-30 11:03:16,708 query_string: AWSAccessKeyId=AKIAJ7GUQU3FPLXVOGGQ&Operation=GetAccountBalance&SignatureVersion=1&Timestamp=2016-09-30T18%3A03%3A16Z&Version=2012-03-25 Signature: FSUThixGSOlXgOyL27iSewDp/2I=
+2016-09-30 11:03:16,775 wrapping ssl socket; CA certificate file=/Users/Tom/.virtualenvs/dallinger/lib/python2.7/site-packages/boto/cacerts/cacerts.txt
+2016-09-30 11:03:16,925 validating server certificate: hostname=mechanicalturk.amazonaws.com, certificate hosts=['mechanicalturk.amazonaws.com']
+Reject recruitment reopening: experiment has started.
+launch request successful.
+2016-09-30 11:03:17,350 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:17,350 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:17] "POST /launch HTTP/1.1" 200 21 "-" "curl/7.43.0"
+2016-09-30 11:03:17,351 127.0.0.1 - - [30/Sep/2016:11:03:17] "POST /launch HTTP/1.1" 200 21 "-" "curl/7.43.0"
+2016-09-30 11:03:19 [64110] [DEBUG] Closing connection. 
+2016-09-30 11:03:19,884 Closing connection. 
+2016-09-30 11:03:19 [64110] [DEBUG] Closing connection. 
+2016-09-30 11:03:19,911 Closing connection. 
+2016-09-30 11:03:20 [64110] [DEBUG] GET /ad
+2016-09-30 11:03:20,447 GET /ad
+127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug HTTP/1.1" 200 3427 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:20,473 127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug HTTP/1.1" 200 3427 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:20 [64110] [DEBUG] GET /static/images/university.png
+2016-09-30 11:03:20,482 GET /static/images/university.png
+127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /static/images/university.png HTTP/1.1" 200 28494 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:20,491 127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /static/images/university.png HTTP/1.1" 200 28494 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:20 [64110] [DEBUG] GET /static/css/bootstrap.min.css
+2016-09-30 11:03:20,492 GET /static/css/bootstrap.min.css
+127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:20,494 127.0.0.1 - - [30/Sep/2016:11:03:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99961 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21 [64110] [DEBUG] GET /consent
+2016-09-30 11:03:21,417 GET /consent
+2016-09-30 11:03:21,421 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:21,421 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug HTTP/1.1" 200 3449 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21,421 127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug HTTP/1.1" 200 3449 "http://0.0.0.0:5000/ad?assignmentId=debugKAJIT5&hitId=debugAD3NIB&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21 [64110] [DEBUG] GET /static/scripts/reqwest.min.js
+2016-09-30 11:03:21,439 GET /static/scripts/reqwest.min.js
+127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/scripts/reqwest.min.js HTTP/1.1" 200 9342 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21,441 127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/scripts/reqwest.min.js HTTP/1.1" 200 9342 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21 [64110] [DEBUG] GET /static/scripts/dallinger.js
+2016-09-30 11:03:21,441 GET /static/scripts/dallinger.js
+127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/scripts/dallinger.js HTTP/1.1" 200 4373 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21,443 127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/scripts/dallinger.js HTTP/1.1" 200 4373 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21 [64110] [DEBUG] Closing connection. 
+2016-09-30 11:03:21,443 Closing connection. 
+2016-09-30 11:03:21 [64110] [DEBUG] GET /static/css/dallinger.css
+2016-09-30 11:03:21,474 GET /static/css/dallinger.css
+127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/css/dallinger.css HTTP/1.1" 200 366 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:21,476 127.0.0.1 - - [30/Sep/2016:11:03:21] "GET /static/css/dallinger.css HTTP/1.1" 200 366 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22 [64110] [DEBUG] GET /instructions/1
+2016-09-30 11:03:22,579 GET /instructions/1
+2016-09-30 11:03:22,581 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:22,581 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:22] "GET /instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug HTTP/1.1" 200 1198 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22,581 127.0.0.1 - - [30/Sep/2016:11:03:22] "GET /instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug HTTP/1.1" 200 1198 "http://0.0.0.0:5000/consent?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&workerId=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22 [64110] [DEBUG] GET /static/images/demo%20berries.png
+2016-09-30 11:03:22,589 GET /static/images/demo%20berries.png
+127.0.0.1 - - [30/Sep/2016:11:03:22] "GET /static/images/demo%20berries.png HTTP/1.1" 200 117478 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22,591 127.0.0.1 - - [30/Sep/2016:11:03:22] "GET /static/images/demo%20berries.png HTTP/1.1" 200 117478 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22 [64110] [DEBUG] POST /participant/debugDN2CTW/debugAD3NIB/debugKAJIT5/debug
+2016-09-30 11:03:22,626 POST /participant/debugDN2CTW/debugAD3NIB/debugKAJIT5/debug
+participant post request successful.
+2016-09-30 11:03:22,639 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:22,639 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:22] "POST /participant/debugDN2CTW/debugAD3NIB/debugKAJIT5/debug HTTP/1.1" 200 466 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:22,640 127.0.0.1 - - [30/Sep/2016:11:03:22] "POST /participant/debugDN2CTW/debugAD3NIB/debugKAJIT5/debug HTTP/1.1" 200 466 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /instructions/2
+2016-09-30 11:03:32,048 GET /instructions/2
+2016-09-30 11:03:32,051 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:32,051 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /instructions/2?participant_id=1 HTTP/1.1" 200 4797 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,052 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /instructions/2?participant_id=1 HTTP/1.1" 200 4797 "http://0.0.0.0:5000/instructions/1?hit_id=debugAD3NIB&assignment_id=debugKAJIT5&worker_id=debugDN2CTW&mode=debug" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/css/bootstrap.min.css
+2016-09-30 11:03:32,060 GET /static/css/bootstrap.min.css
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,062 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/css/experiment.css
+2016-09-30 11:03:32,062 GET /static/css/experiment.css
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/experiment.css HTTP/1.1" 200 476 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,064 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/experiment.css HTTP/1.1" 200 476 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/css/dallinger.css
+2016-09-30 11:03:32,065 GET /static/css/dallinger.css
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/dallinger.css HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,066 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/css/dallinger.css HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/scripts/reqwest.min.js
+2016-09-30 11:03:32,067 GET /static/scripts/reqwest.min.js
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/scripts/reqwest.min.js HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,068 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/scripts/reqwest.min.js HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/scripts/dallinger.js
+2016-09-30 11:03:32,068 GET /static/scripts/dallinger.js
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/scripts/dallinger.js HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,070 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/scripts/dallinger.js HTTP/1.1" 304 - "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/blue%20body.png
+2016-09-30 11:03:32,070 GET /static/images/blue%20body.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/blue%20body.png HTTP/1.1" 200 12443 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,072 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/blue%20body.png HTTP/1.1" 200 12443 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/red%20body.png
+2016-09-30 11:03:32,074 GET /static/images/red%20body.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/red%20body.png HTTP/1.1" 200 12399 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,076 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/red%20body.png HTTP/1.1" 200 12399 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/glint.png
+2016-09-30 11:03:32,078 GET /static/images/glint.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/glint.png HTTP/1.1" 200 4085 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,079 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/glint.png HTTP/1.1" 200 4085 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/dots.png
+2016-09-30 11:03:32,081 GET /static/images/dots.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/dots.png HTTP/1.1" 200 7450 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,082 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/dots.png HTTP/1.1" 200 7450 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/round%20border.png
+2016-09-30 11:03:32,084 GET /static/images/round%20border.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/round%20border.png HTTP/1.1" 200 14614 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,085 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/round%20border.png HTTP/1.1" 200 14614 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32 [64110] [DEBUG] GET /static/images/stem%20black.png
+2016-09-30 11:03:32,087 GET /static/images/stem%20black.png
+127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/stem%20black.png HTTP/1.1" 200 19353 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:32,089 127.0.0.1 - - [30/Sep/2016:11:03:32] "GET /static/images/stem%20black.png HTTP/1.1" 200 19353 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:34 [64110] [DEBUG] GET /instructions/3
+2016-09-30 11:03:34,269 GET /instructions/3
+2016-09-30 11:03:34,271 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:34,271 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:34] "GET /instructions/3?participant_id=1 HTTP/1.1" 200 2445 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:34,272 127.0.0.1 - - [30/Sep/2016:11:03:34] "GET /instructions/3?participant_id=1 HTTP/1.1" 200 2445 "http://0.0.0.0:5000/instructions/2?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39 [64110] [DEBUG] GET /instructions/4
+2016-09-30 11:03:39,025 GET /instructions/4
+2016-09-30 11:03:39,027 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:39,027 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /instructions/4?participant_id=1 HTTP/1.1" 200 1839 "http://0.0.0.0:5000/instructions/3?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39,027 127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /instructions/4?participant_id=1 HTTP/1.1" 200 1839 "http://0.0.0.0:5000/instructions/3?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39 [64110] [DEBUG] GET /static/scripts/jquery-min.js
+2016-09-30 11:03:39,038 GET /static/scripts/jquery-min.js
+127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /static/scripts/jquery-min.js HTTP/1.1" 200 93107 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39,039 127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /static/scripts/jquery-min.js HTTP/1.1" 200 93107 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39 [64110] [DEBUG] GET /static/scripts/experiment.js
+2016-09-30 11:03:39,040 GET /static/scripts/experiment.js
+127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /static/scripts/experiment.js HTTP/1.1" 200 4721 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39,042 127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /static/scripts/experiment.js HTTP/1.1" 200 4721 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39 [64110] [DEBUG] GET /experiment_property/num_trials
+2016-09-30 11:03:39,091 GET /experiment_property/num_trials
+num_trials request successful.
+2016-09-30 11:03:39,094 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:39,094 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /experiment_property/num_trials HTTP/1.1" 200 40 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:39,094 127.0.0.1 - - [30/Sep/2016:11:03:39] "GET /experiment_property/num_trials HTTP/1.1" 200 40 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41 [64110] [DEBUG] GET /exp
+2016-09-30 11:03:41,334 GET /exp
+2016-09-30 11:03:41,337 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:41,337 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:41] "GET /exp?participant_id=1 HTTP/1.1" 200 4657 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41,338 127.0.0.1 - - [30/Sep/2016:11:03:41] "GET /exp?participant_id=1 HTTP/1.1" 200 4657 "http://0.0.0.0:5000/instructions/4?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41 [64110] [DEBUG] GET /experiment_property/num_trials
+2016-09-30 11:03:41,407 GET /experiment_property/num_trials
+num_trials request successful.
+2016-09-30 11:03:41,410 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:41,410 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:41] "GET /experiment_property/num_trials HTTP/1.1" 200 40 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41,411 127.0.0.1 - - [30/Sep/2016:11:03:41] "GET /experiment_property/num_trials HTTP/1.1" 200 40 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41 [64110] [DEBUG] POST /node/1
+2016-09-30 11:03:41,420 POST /node/1
+>>>> 1 1 networks out of 1 available
+>>>> 1 No practice networks available.Assigning participant to experiment network 1
+/node POST request successful.
+2016-09-30 11:03:41,446 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:41,446 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:41] "POST /node/1 HTTP/1.1" 200 276 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:41,447 127.0.0.1 - - [30/Sep/2016:11:03:41] "POST /node/1 HTTP/1.1" 200 276 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:47 [64110] [DEBUG] POST /info/1
+2016-09-30 11:03:47,772 POST /info/1
+info post request successful.
+2016-09-30 11:03:47,801 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:47,801 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:47] "POST /info/1 HTTP/1.1" 200 318 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:47,801 127.0.0.1 - - [30/Sep/2016:11:03:47] "POST /info/1 HTTP/1.1" 200 318 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:50 [64110] [DEBUG] POST /info/1
+2016-09-30 11:03:50,794 POST /info/1
+info post request successful.
+2016-09-30 11:03:50,820 - dallinger.db - DEBUG - Closing Dallinger DB session at flask request end
+2016-09-30 11:03:50,820 Closing Dallinger DB session at flask request end
+127.0.0.1 - - [30/Sep/2016:11:03:50] "POST /info/1 HTTP/1.1" 200 317 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:03:50,821 127.0.0.1 - - [30/Sep/2016:11:03:50] "POST /info/1 HTTP/1.1" 200 317 "http://0.0.0.0:5000/exp?participant_id=1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+2016-09-30 11:04:29 [64110] [INFO] Worker exiting (pid: 64110)
+2016-09-30 11:04:29,669 Worker exiting (pid: 64110)
+2016-09-30 11:04:29 [64107] [INFO] Handling signal: int
+2016-09-30 11:04:29 [64107] [INFO] Shutting down: Master
